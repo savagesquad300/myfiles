@@ -6,4 +6,9 @@ make use of profs read me file to install.
 use the first script for both the master and the slave nodes
 for the master nodes, complete the whole scripts , log out from root user and perform the remaining tasks.
 for the slave users make sure you run the kubeadm init in the master and get your token, add that token to the script for the worker nodes
-
+....
+When setting up Eks cluster, after you have set up eks on aws, and set up worket node groups, to connect to your system you will have to create an external ec2 instance where you will do the following:
+- Install Kubectl from official website
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+- Install Aws Cli 
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
