@@ -30,3 +30,7 @@ d. EBS driver policy
 10. Go to identity access management and create a new access key. when configuring your access, use the current availability zone where your control plane is located and use 'json' when asked for output format
 11. aws eks update-kubeconfig --name firstcluster --region us-east-1
 note that in the above code firstcluster will be name of your current kube cluster you want to access
+12. Install git and run the code below to create a dynamic storage for pV and PVC creation
+Dynamic Storage provisioning allows storage volumes to be created on demand. instead of making calls to CSP to new volumes and then create Persistent volume objects.
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.12"
+DONE!!!
