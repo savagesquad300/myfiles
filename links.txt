@@ -12,3 +12,21 @@ When setting up Eks cluster, after you have set up eks on aws, and set up worket
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 - Install Aws Cli 
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+---
+Steps to setup EKS cluster
+1. Create a VPC with 2 Public and @ private subnets. each public and private subnet pair should be in a different availability zone.
+2. Set Auto assign ipaddresses to your subnets if you want them to be a part of the cluster.
+3. Create an IAM role, the use case should be EKS cluster.
+4. Create a second IAM role, this one should have its use case as ec2. Attach 4 policies namely
+a. WorkernodePolicy
+b. Container Network interface CNI policy
+c. Container registry read only policy
+d. EBS driver policy
+5. Create a Security group for your VPC and allow all traffics.
+6. create EKS cluster with the eks role, security group and VPC
+7. Create a node group from the compute tab. Make sure to set templates with a private key. Also make sure to attach the required role, VPN and Security group.
+8. Create a new instance where you would connect to the control plae from
+9. Ssh into the instance and nstall kubectl with the link already provided abouve, install aws cli too.
+10. Go to identity access management and create a new access key. when configuring your access, use the current availability zone where your control plane is located and use 'json' when asked for output format
+11. aws eks update-kubeconfig --name firstcluster --region us-east-1
+note that in the above code firstcluster will be name of your current kube cluster you want to access
