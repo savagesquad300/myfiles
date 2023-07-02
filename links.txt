@@ -88,3 +88,8 @@ sh 'sudo docker login -u savagesquad300 -p ${dockerpass}'
        sh 'sudo docker tag tesla:1.0 savagesquad300/tesla:1.0'
        sh 'sudo docker push savagesquad300/tesla:1.0'
        }
+To install Flux
+Install git
+flux.io/flux/installation
+github and github enterprise
+runthe bootstrap
