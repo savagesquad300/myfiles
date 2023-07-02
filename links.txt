@@ -74,3 +74,17 @@ sudo docker build -t tesla:1.0 .
 ---
 copy the above script, go to create new pipeline syntax, 
 in the dropdown, choose script shell
+To integrate with docker push
+create new step
+go to pipeline syntax and look for the sample step below
+withcredentials: bind credentials with variables
+Go to binding and find "secret text"
+Add Credentials as Jenkins
+go ahead and put in your password or the text you want to convert to a secret
+you will use the generated syntax with the below listed commands
+sh 'sudo docker login -u username -p ${the variable gotten from the earlier generted token}
+---
+sh 'sudo docker login -u savagesquad300 -p ${dockerpass}'
+       sh 'sudo docker tag tesla:1.0 savagesquad300/tesla:1.0'
+       sh 'sudo docker push savagesquad300/tesla:1.0'
+       }
